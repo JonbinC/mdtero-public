@@ -16,6 +16,9 @@ class ClawHubPackageTests(unittest.TestCase):
 
         self.assertIn("name: mdtero", contents)
         self.assertIn("description:", contents)
+        self.assertIn('"openclaw"', contents)
+        self.assertIn('"primaryEnv":"MDTERO_API_KEY"', contents)
+        self.assertIn('"env":["MDTERO_API_KEY"]', contents)
         self.assertIn("MDTERO_API_KEY", contents)
         self.assertIn("POST /tasks/parse", contents)
         self.assertIn("POST /tasks/translate", contents)

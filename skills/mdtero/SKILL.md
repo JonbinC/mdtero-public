@@ -1,6 +1,7 @@
 ---
 name: mdtero
 description: Use when a user wants Mdtero to parse a paper from a DOI or URL into a structured Markdown package, translate a parsed paper while keeping structure, or download Mdtero task artifacts.
+metadata: {"openclaw":{"homepage":"https://mdtero.com","primaryEnv":"MDTERO_API_KEY","requires":{"env":["MDTERO_API_KEY"]}}}
 ---
 
 # Mdtero
