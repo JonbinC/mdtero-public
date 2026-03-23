@@ -68,7 +68,7 @@ Publish flow:
 
 ```bash
 clawhub login
-clawhub publish ./skills/mdtero --slug mdtero --name "Mdtero" --version 0.1.1 --tags latest
+clawhub --workdir . publish skills/mdtero --slug mdtero --name "Mdtero" --version 0.1.1 --tags latest
 ```
 
 ## What Mdtero Does

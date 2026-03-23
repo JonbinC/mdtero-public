@@ -36,7 +36,7 @@ class ClawHubPackageTests(unittest.TestCase):
         self.assertIn("skills/mdtero/SKILL.md", contents)
         self.assertIn("python3 -m unittest discover -s tests -v", contents)
         self.assertIn("clawhub login", contents)
-        self.assertIn("clawhub publish ./skills/mdtero", contents)
+        self.assertIn("clawhub --workdir . publish skills/mdtero", contents)
 
 
 if __name__ == "__main__":
