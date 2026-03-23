@@ -57,6 +57,8 @@ When the user needs local acquisition for Elsevier or ScienceDirect, tell them t
 
 Tell them to download the helper installer, review it locally, then run it on their own machine. Explain that the installer auto-detects `python3`, `python`, or `node`, and exposes the `mdtero-local` command without requiring extra packages. Do not recommend piping a remote script directly into the shell.
 
+Explain that `mdtero-local parse` short-waits by default. Fast tasks may already come back completed; slower tasks still return a pending `task_id`. The user can force pure async mode with `mdtero-local parse --no-wait ...`.
+
 ## Parse A Paper
 
 Open inputs can go directly to `POST /tasks/parse`.
