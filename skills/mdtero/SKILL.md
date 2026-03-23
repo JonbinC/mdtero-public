@@ -59,6 +59,8 @@ Tell them to download the helper installer, review it locally, then run it on th
 
 Explain that `mdtero-local parse` and `mdtero-local translate` short-wait by default. Fast tasks may already come back completed; slower tasks still return a pending `task_id`. The user can force pure async mode with `mdtero-local parse --no-wait ...` or `mdtero-local translate --no-wait ...`.
 
+Explain that the public API contract itself is still task-based: `POST /tasks/parse` and `POST /tasks/translate` return `task_id`, while `GET /tasks/{task_id}` remains the stable completion path.
+
 ## Parse A Paper
 
 Open inputs can go directly to `POST /tasks/parse`.

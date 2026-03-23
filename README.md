@@ -45,6 +45,13 @@ Required environment variables for agent and API usage:
 
 For the local helper, download the installer, inspect it, then run it. Do not pipe a remote script directly into the shell.
 
+The public API remains task-based:
+
+- `POST /tasks/parse` returns `task_id`
+- `POST /tasks/translate` returns `task_id`
+- `GET /tasks/{task_id}` is the stable completion contract
+- `mdtero-local parse` and `mdtero-local translate` are the convenience layer that short-waits by default and may print the completed task payload directly
+
 ## ClawHub Skill
 
 The public OpenClaw skill bundle lives at:
@@ -56,7 +63,7 @@ This skill keeps the public surface focused on:
 - `POST /tasks/parse` for structured paper parsing
 - `POST /tasks/translate` for aligned translation on top of `paper_md`
 - `GET /tasks/{task_id}` for status checks
-- download routes for `paper_md`, `paper_bundle`, and `translated_md`
+- download routes for `paper_md`, `paper_bundle`, optional `paper_pdf`, and `translated_md`
 
 Validation:
 
