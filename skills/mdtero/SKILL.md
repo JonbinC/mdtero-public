@@ -1,6 +1,6 @@
 ---
 name: mdtero
-description: Parse papers into structured Markdown research packages and optionally translate them for OpenClaw workflows.
+description: Use when a user wants Mdtero to parse a paper from a DOI or URL into a structured Markdown package, translate a parsed paper while keeping structure, or download Mdtero task artifacts.
 ---
 
 # Mdtero
@@ -19,7 +19,7 @@ Use this skill when the user wants to:
 
 1. Check whether `MDTERO_API_KEY` is already available.
 2. If it is missing, tell the user to generate one at `https://mdtero.com/account`.
-3. Ask them to export it locally:
+3. Ask them to set it in their local shell, for example:
 
 ```bash
 export MDTERO_API_KEY="mdt_live_..."
@@ -43,16 +43,9 @@ Authorization: ApiKey $MDTERO_API_KEY
 
 ## Local Helper
 
-When the user needs local acquisition for Elsevier or ScienceDirect, tell them to download it, review it, then run it:
+When the user needs local acquisition for Elsevier or ScienceDirect, tell them to open the official Mdtero guide at `https://mdtero.com/guide` or the install handoff at `https://api.mdtero.com/skills/install.md`.
 
-```bash
-curl -fsSL https://api.mdtero.com/helpers/install_mdtero_helper.sh -o install_mdtero_helper.sh
-sed -n '1,160p' install_mdtero_helper.sh
-chmod +x install_mdtero_helper.sh
-./install_mdtero_helper.sh
-```
-
-Explain that the installer auto-detects `python3`, `python`, or `node`, and does not require extra packages. Do not recommend piping a remote script directly into the shell.
+Tell them to download the helper installer, review it locally, then run it on their own machine. Explain that the installer auto-detects `python3`, `python`, or `node`, and exposes the `mdtero-local` command without requiring extra packages. Do not recommend piping a remote script directly into the shell.
 
 ## Parse A Paper
 
