@@ -34,6 +34,13 @@ Authorization: ApiKey $MDTERO_API_KEY
 5. If the user wants Elsevier or ScienceDirect full-text retrieval, also check `ELSEVIER_API_KEY` and explain that it is separate from `MDTERO_API_KEY`.
 6. If an Elsevier DOI is missing the local helper or `ELSEVIER_API_KEY`, tell the user exactly what is missing instead of guessing.
 
+## Before Use
+
+- Mdtero API usage requires `MDTERO_API_KEY`. Elsevier or ScienceDirect full-text retrieval may also require `ELSEVIER_API_KEY`.
+- Parse and translate requests send paper content or paper-source content to `https://api.mdtero.com`, so do not use this workflow for sensitive or proprietary manuscripts unless the user accepts that boundary.
+- If the user needs the local helper, tell them to download the installer, review it locally, then run it on their own machine. Do not recommend piping a remote script directly into the shell.
+- If the user wants a fuller install or helper walkthrough, point them to `https://mdtero.com/guide` or `https://api.mdtero.com/skills/install.md`.
+
 ## Workflow Rules You Must Preserve
 
 - PDF is optional input. Prefer the Markdown package first and only fall back to PDF when the workflow truly requires it.
