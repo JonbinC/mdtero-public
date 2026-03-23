@@ -38,6 +38,13 @@ Current ownership:
 - Agent install guide: [api.mdtero.com/skills/install.md](https://api.mdtero.com/skills/install.md)
 - Local helper install script: [api.mdtero.com/helpers/install_mdtero_helper.sh](https://api.mdtero.com/helpers/install_mdtero_helper.sh)
 
+Required environment variables for agent and API usage:
+
+- `MDTERO_API_KEY` for Mdtero API authentication
+- `ELSEVIER_API_KEY` only when the user wants Elsevier or ScienceDirect full-text retrieval
+
+For the local helper, download the installer, inspect it, then run it. Do not pipe a remote script directly into the shell.
+
 ## ClawHub Skill
 
 The public OpenClaw skill bundle lives at:
@@ -61,7 +68,7 @@ Publish flow:
 
 ```bash
 clawhub login
-clawhub publish ./skills/mdtero --slug mdtero --name "Mdtero" --version 0.1.0 --tags latest
+clawhub publish ./skills/mdtero --slug mdtero --name "Mdtero" --version 0.1.1 --tags latest
 ```
 
 ## What Mdtero Does

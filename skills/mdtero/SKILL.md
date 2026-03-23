@@ -31,7 +31,7 @@ export MDTERO_API_KEY="mdt_live_..."
 Authorization: ApiKey $MDTERO_API_KEY
 ```
 
-5. If the user wants Elsevier or ScienceDirect full-text retrieval, also check `ELSEVIER_API_KEY`.
+5. If the user wants Elsevier or ScienceDirect full-text retrieval, also check `ELSEVIER_API_KEY` and explain that it is separate from `MDTERO_API_KEY`.
 6. If an Elsevier DOI is missing the local helper or `ELSEVIER_API_KEY`, tell the user exactly what is missing instead of guessing.
 
 ## Workflow Rules You Must Preserve
@@ -43,13 +43,16 @@ Authorization: ApiKey $MDTERO_API_KEY
 
 ## Local Helper
 
-When the user needs local acquisition for Elsevier or ScienceDirect, recommend:
+When the user needs local acquisition for Elsevier or ScienceDirect, tell them to download it, review it, then run it:
 
 ```bash
-curl -fsSL https://api.mdtero.com/helpers/install_mdtero_helper.sh | sh
+curl -fsSL https://api.mdtero.com/helpers/install_mdtero_helper.sh -o install_mdtero_helper.sh
+sed -n '1,160p' install_mdtero_helper.sh
+chmod +x install_mdtero_helper.sh
+./install_mdtero_helper.sh
 ```
 
-Explain that the installer auto-detects `python3`, `python`, or `node`, and does not require extra packages.
+Explain that the installer auto-detects `python3`, `python`, or `node`, and does not require extra packages. Do not recommend piping a remote script directly into the shell.
 
 ## Parse A Paper
 
@@ -68,14 +71,14 @@ The response returns a `task_id`.
 
 ## Translate A Parsed Markdown File
 
-Use `POST /tasks/translate` with the `paper_md` path from a succeeded parse task.
+Use `POST /tasks/translate` with the server-side Markdown artifact path returned by a succeeded parse task in `result.artifacts.paper_md.path`. Do not substitute an arbitrary local file path.
 
 ```bash
-curl -X POST https://api.mdtero.com/tasks/translate \
+  curl -X POST https://api.mdtero.com/tasks/translate \
   -H "Authorization: ApiKey $MDTERO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "source_markdown_path": "/absolute/path/from/paper_md",
+    "source_markdown_path": "<path from result.artifacts.paper_md.path>",
     "target_language": "zh",
     "mode": "standard"
   }'

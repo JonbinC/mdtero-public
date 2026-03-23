@@ -24,6 +24,10 @@ class ClawHubPackageTests(unittest.TestCase):
         self.assertIn("PDF is optional input", contents)
         self.assertIn("Elsevier", contents)
         self.assertIn("browser extension", contents)
+        self.assertIn("download it, review it, then run it", contents)
+        self.assertIn("result.artifacts.paper_md.path", contents)
+        self.assertNotIn("| sh", contents)
+        self.assertNotIn('"/absolute/path/from/paper_md"', contents)
 
     def test_readme_explains_clawhub_publish_flow(self):
         contents = README.read_text(encoding="utf-8")
