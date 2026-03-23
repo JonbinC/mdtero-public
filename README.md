@@ -1,8 +1,28 @@
 # Mdtero
 
-Mdtero is an AI-ready research pre-processing workflow for paper capture, parsing, translation, and agent handoff.
+Mdtero is an agent-first research workflow for paper capture, parsing, translation, and downstream handoff.
 
-This public repository is a lightweight product entry point and the public ClawHub skill source for Mdtero. It intentionally does **not** contain the private application or backend implementation.
+This repository is the lightweight public entry point and public skill source for Mdtero. It intentionally does **not** contain the active website workspace, the active extension workspace, or the private backend implementation.
+
+## Repo Role
+
+Use this repo for:
+
+- the public OpenClaw / ClawHub skill
+- lightweight public product messaging
+- simple public packaging tests
+
+Do not use this repo as the source of truth for:
+
+- website, dashboard, or account behavior
+- browser extension behavior
+- backend auth, billing, parsing, or deployment logic
+
+Current ownership:
+
+- active product workspace: [JonbinC/mdtero](https://github.com/JonbinC/mdtero)
+- extension mirror and sideload repo: [JonbinC/Mdtero-Extension](https://github.com/JonbinC/Mdtero-Extension)
+- backend deploy and private service SSOT: `JonbinC/mdtero-backend`
 
 ## Product Entry
 
@@ -56,10 +76,12 @@ clawhub publish ./skills/mdtero --slug mdtero --name "Mdtero" --version 0.1.0 --
 - This repository is public-facing only
 - Core application code, backend logic, infrastructure, and private workflows stay in private repositories
 - Publisher-side acquisition that requires local handling remains on the user's side through the extension or local helper
+- If wording here conflicts with the active product repo, `JonbinC/mdtero` is authoritative for current product behavior
 
 ## Public Repositories
 
-- Product entry repo: this repository
+- Product skill repo: this repository
+- Product workspace and frontend SSOT: [JonbinC/mdtero](https://github.com/JonbinC/mdtero)
 - Browser extension repo: [JonbinC/Mdtero-Extension](https://github.com/JonbinC/Mdtero-Extension)
 
 ## Contact
