@@ -32,6 +32,8 @@ class ClawHubPackageTests(unittest.TestCase):
         self.assertIn("Parse and translate requests send paper content", contents)
         self.assertIn("sensitive or proprietary manuscripts", contents)
         self.assertIn("ELSEVIER_API_KEY", contents)
+        self.assertIn("does not enable direct server-side `POST /tasks/parse`", contents)
+        self.assertIn("POST /tasks/parse-upload", contents)
         self.assertIn("result.artifacts.paper_md.path", contents)
         self.assertNotIn("| sh", contents)
         self.assertNotIn('"/absolute/path/from/paper_md"', contents)

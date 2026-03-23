@@ -34,6 +34,7 @@ Authorization: ApiKey $MDTERO_API_KEY
 
 5. If the user wants Elsevier or ScienceDirect full-text retrieval, also check `ELSEVIER_API_KEY` and explain that it is separate from `MDTERO_API_KEY`.
 6. If an Elsevier DOI is missing the local helper or `ELSEVIER_API_KEY`, tell the user exactly what is missing instead of guessing.
+7. Explain that `ELSEVIER_API_KEY` helps the user's local acquisition step. It does not enable direct server-side `POST /tasks/parse` for `10.1016/...` inputs.
 
 ## Before Use
 
@@ -46,6 +47,7 @@ Authorization: ApiKey $MDTERO_API_KEY
 
 - PDF is optional input. Prefer the Markdown package first and only fall back to PDF when the workflow truly requires it.
 - For Elsevier and ScienceDirect, local acquisition should stay on the user's own machine through the local helper or browser extension.
+- Direct `POST /tasks/parse` is for open inputs. Elsevier and ScienceDirect full text must go through local acquisition first, then `POST /tasks/parse-upload`.
 - If an Elsevier parse only returns the abstract, ask whether the user is on a campus or institutional IP.
 - For Elsevier papers, prefer the raw DOI form such as `10.1016/j.energy.2026.140192`.
 
@@ -60,8 +62,6 @@ Tell them to download the helper installer, review it locally, then run it on th
 Open inputs can go directly to `POST /tasks/parse`.
 
 ```bash
-mdtero-local parse "10.1016/j.enconman.2026.121230"
-
 curl -X POST https://api.mdtero.com/tasks/parse \
   -H "Authorization: ApiKey $MDTERO_API_KEY" \
   -H "Content-Type: application/json" \
@@ -69,6 +69,18 @@ curl -X POST https://api.mdtero.com/tasks/parse \
 ```
 
 The response returns a `task_id`.
+
+For Elsevier or ScienceDirect full text, do not send the DOI straight to `POST /tasks/parse`. Use the local helper or browser extension first, then upload the local XML bundle:
+
+```bash
+mdtero-local parse "10.1016/j.enconman.2026.121230"
+
+curl -X POST https://api.mdtero.com/tasks/parse-upload \
+  -H "Authorization: ApiKey $MDTERO_API_KEY" \
+  -F "file=@paper.xml"
+```
+
+If the API says Elsevier or ScienceDirect inputs must be acquired locally first, that is the expected behavior rather than a setup failure.
 
 ## Translate A Parsed Markdown File
 
