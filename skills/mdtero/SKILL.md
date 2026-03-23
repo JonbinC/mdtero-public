@@ -57,7 +57,7 @@ When the user needs local acquisition for Elsevier or ScienceDirect, tell them t
 
 Tell them to download the helper installer, review it locally, then run it on their own machine. Explain that the installer auto-detects `python3`, `python`, or `node`, and exposes the `mdtero-local` command without requiring extra packages. Do not recommend piping a remote script directly into the shell.
 
-Explain that `mdtero-local parse` short-waits by default. Fast tasks may already come back completed; slower tasks still return a pending `task_id`. The user can force pure async mode with `mdtero-local parse --no-wait ...`.
+Explain that `mdtero-local parse` and `mdtero-local translate` short-wait by default. Fast tasks may already come back completed; slower tasks still return a pending `task_id`. The user can force pure async mode with `mdtero-local parse --no-wait ...` or `mdtero-local translate --no-wait ...`.
 
 ## Parse A Paper
 
@@ -89,6 +89,8 @@ If the API says Elsevier or ScienceDirect inputs must be acquired locally first,
 Use `POST /tasks/translate` with the server-side Markdown artifact path returned by a succeeded parse task in `result.artifacts.paper_md.path`. Do not substitute an arbitrary local file path.
 
 ```bash
+  mdtero-local translate "<path from result.artifacts.paper_md.path>" zh
+
   curl -X POST https://api.mdtero.com/tasks/translate \
   -H "Authorization: ApiKey $MDTERO_API_KEY" \
   -H "Content-Type: application/json" \
