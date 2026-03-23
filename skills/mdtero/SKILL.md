@@ -14,7 +14,7 @@ Use this skill when the user wants to:
 
 - parse a paper from a DOI, supported publisher page, or open URL into a Markdown research package
 - translate an already parsed paper without losing the original research structure
-- check task status and download `paper_md`, `paper_bundle`, or `translated_md`
+- check task status and download `paper_md`, `paper_bundle`, optional `paper_pdf`, or `translated_md`
 
 ## Required Setup
 
@@ -45,7 +45,7 @@ Authorization: ApiKey $MDTERO_API_KEY
 
 ## Workflow Rules You Must Preserve
 
-- PDF is optional input. Prefer the Markdown package first and only fall back to PDF when the workflow truly requires it.
+- PDF is an optional artifact. Prefer the Markdown package first and only fall back to `paper_pdf` when the workflow truly requires it.
 - For Elsevier and ScienceDirect, local acquisition should stay on the user's own machine through the local helper or browser extension.
 - Direct `POST /tasks/parse` is for open inputs. Elsevier and ScienceDirect full text must go through local acquisition first, then `POST /tasks/parse-upload`.
 - If an Elsevier parse only returns the abstract, ask whether the user is on a campus or institutional IP.
@@ -124,6 +124,10 @@ mdtero-local download <TASK_ID> paper_bundle ./paper_bundle.zip
 curl -L https://api.mdtero.com/tasks/<TASK_ID>/download/paper_md \
   -H "Authorization: ApiKey $MDTERO_API_KEY" \
   -o paper.md
+
+curl -L https://api.mdtero.com/tasks/<TASK_ID>/download/paper_pdf \
+  -H "Authorization: ApiKey $MDTERO_API_KEY" \
+  -o paper.pdf
 
 curl -L https://api.mdtero.com/tasks/<TASK_ID>/download/translated_md \
   -H "Authorization: ApiKey $MDTERO_API_KEY" \
