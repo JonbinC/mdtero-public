@@ -33,8 +33,9 @@ Current ownership:
 
 ## Install
 
+- OpenClaw: `clawhub install mdtero`
 - Edge Add-ons: [Mdtero on Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/mdtero/bgikfidgigjnkgfdhhopojgpckilknic)
-- Direct extension ZIP: [mdtero.com/assets/mdtero-extension-beta.zip](https://mdtero.com/assets/mdtero-extension-beta.zip)
+- Browser capture and helper guide: [mdtero.com/guide](https://mdtero.com/guide)
 - Agent install guide: [api.mdtero.com/skills/install.md](https://api.mdtero.com/skills/install.md)
 - Local helper install script: [api.mdtero.com/helpers/install_mdtero_helper.sh](https://api.mdtero.com/helpers/install_mdtero_helper.sh)
 
@@ -75,7 +76,7 @@ Publish flow:
 
 ```bash
 clawhub login
-clawhub --workdir . publish skills/mdtero --slug mdtero --name "Mdtero" --version 0.1.1 --tags latest
+clawhub --workdir . publish skills/mdtero --slug mdtero --name "Mdtero" --version <version> --tags latest
 ```
 
 ## What Mdtero Does
