@@ -1,6 +1,6 @@
 # Mdtero
 
-Mdtero is an agent-first research workflow for paper capture, parsing, translation, and downstream handoff.
+Mdtero turns papers into reusable Markdown research packages for reading, translation, and downstream agent work.
 
 This repository is the lightweight public entry point and public skill source for Mdtero. It intentionally does **not** contain the active website workspace, the active extension workspace, or the private backend implementation.
 
@@ -31,16 +31,14 @@ Current ownership:
 - Account: [mdtero.com/account](https://mdtero.com/account)
 - API docs: [mdtero.com/api](https://mdtero.com/api)
 
-## Install
+## Start here
 
+- Account: [mdtero.com/account](https://mdtero.com/account)
+- Guide: [mdtero.com/guide](https://mdtero.com/guide)
+- Demo: [mdtero.com/demo](https://mdtero.com/demo)
 - OpenClaw: `clawhub install mdtero`
 - Chrome Web Store: [Mdtero on Google Chrome](https://chromewebstore.google.com/detail/mdtero/knpihhcooldgedbklgjghebijcpejibp)
 - Edge Add-ons: [Mdtero on Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/mdtero/bgikfidgigjnkgfdhhopojgpckilknic)
-- Chrome badge: [![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mdtero/knpihhcooldgedbklgjghebijcpejibp)
-- Edge badge: [![Edge Add-ons](https://img.shields.io/badge/Edge-Add--ons-0C59A4?logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/mdtero/bgikfidgigjnkgfdhhopojgpckilknic)
-- Browser capture and helper guide: [mdtero.com/guide](https://mdtero.com/guide)
-- Agent install guide: [api.mdtero.com/skills/install.md](https://api.mdtero.com/skills/install.md)
-- Local helper install script: [api.mdtero.com/helpers/install_mdtero_helper.sh](https://api.mdtero.com/helpers/install_mdtero_helper.sh)
 
 Required environment variables for agent and API usage:
 
@@ -84,10 +82,10 @@ clawhub --workdir . publish skills/mdtero --slug mdtero --name "Mdtero" --versio
 
 ## What Mdtero Does
 
-- Capture supported papers from the browser or local helper flow
-- Convert papers into structured Markdown packages with figures and artifacts
+- Turn a DOI, paper page, or local file into `paper.md` and a reusable bundle
+- Keep figures and downloadable artifacts with the same paper structure
 - Produce aligned translation outputs for research reading
-- Hand off clean paper packages into agents and downstream workflows
+- Hand clean paper packages off to agents and downstream workflows
 
 ## Product Boundary
 
