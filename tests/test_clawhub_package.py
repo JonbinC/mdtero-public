@@ -51,6 +51,9 @@ class ClawHubPackageTests(unittest.TestCase):
 
         self.assertIn("ClawHub", contents)
         self.assertIn("skills/mdtero/SKILL.md", contents)
+        self.assertIn("Chrome Web Store", contents)
+        self.assertIn("chromewebstore.google.com/detail/mdtero/knpihhcooldgedbklgjghebijcpejibp", contents)
+        self.assertIn("Microsoft Edge", contents)
         self.assertIn("python3 -m unittest discover -s tests -v", contents)
         self.assertIn("clawhub login", contents)
         self.assertIn("clawhub --workdir . publish skills/mdtero", contents)

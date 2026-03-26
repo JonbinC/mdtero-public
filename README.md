@@ -34,7 +34,10 @@ Current ownership:
 ## Install
 
 - OpenClaw: `clawhub install mdtero`
+- Chrome Web Store: [Mdtero on Google Chrome](https://chromewebstore.google.com/detail/mdtero/knpihhcooldgedbklgjghebijcpejibp)
 - Edge Add-ons: [Mdtero on Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/mdtero/bgikfidgigjnkgfdhhopojgpckilknic)
+- Chrome badge: [![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/mdtero/knpihhcooldgedbklgjghebijcpejibp)
+- Edge badge: [![Edge Add-ons](https://img.shields.io/badge/Edge-Add--ons-0C59A4?logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/mdtero/bgikfidgigjnkgfdhhopojgpckilknic)
 - Browser capture and helper guide: [mdtero.com/guide](https://mdtero.com/guide)
 - Agent install guide: [api.mdtero.com/skills/install.md](https://api.mdtero.com/skills/install.md)
 - Local helper install script: [api.mdtero.com/helpers/install_mdtero_helper.sh](https://api.mdtero.com/helpers/install_mdtero_helper.sh)
