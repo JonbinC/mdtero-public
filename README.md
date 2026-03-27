@@ -50,9 +50,19 @@ For the local helper, download the installer, inspect it, then run it. Do not pi
 The public API remains task-based:
 
 - `POST /tasks/parse` returns `task_id`
+- `POST /tasks/parse-fulltext-v2` and `POST /tasks/parse-helper-bundle-v2` are the helper-first local upload routes
 - `POST /tasks/translate` returns `task_id`
 - `GET /tasks/{task_id}` is the stable completion contract
 - `mdtero-local parse` and `mdtero-local translate` are the convenience layer that short-waits by default and may print the completed task payload directly
+
+For local structured acquisition, download the helper installer, inspect it, then run it locally:
+
+```bash
+curl -fsSL https://api.mdtero.com/helpers/install_mdtero_helper.sh -o install_mdtero_helper.sh
+sed -n '1,160p' install_mdtero_helper.sh
+chmod +x install_mdtero_helper.sh
+./install_mdtero_helper.sh
+```
 
 ## ClawHub Skill
 
@@ -63,6 +73,7 @@ The public OpenClaw skill bundle lives at:
 This skill keeps the public surface focused on:
 
 - `POST /tasks/parse` for structured paper parsing
+- `POST /tasks/parse-fulltext-v2` and `POST /tasks/parse-helper-bundle-v2` for helper-first local uploads
 - `POST /tasks/translate` for aligned translation on top of `paper_md`
 - `GET /tasks/{task_id}` for status checks
 - download routes for `paper_md`, `paper_bundle`, optional `paper_pdf`, and `translated_md`

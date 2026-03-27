@@ -41,7 +41,10 @@ class ClawHubPackageTests(unittest.TestCase):
         self.assertIn("sensitive or proprietary manuscripts", contents)
         self.assertIn("ELSEVIER_API_KEY", contents)
         self.assertIn("does not enable direct server-side `POST /tasks/parse`", contents)
-        self.assertIn("POST /tasks/parse-upload", contents)
+        self.assertIn("POST /tasks/parse-helper-bundle-v2", contents)
+        self.assertIn("POST /tasks/parse-fulltext-v2", contents)
+        self.assertIn("helper_bundle", contents)
+        self.assertIn("install_mdtero_helper.sh", contents)
         self.assertIn("result.artifacts.paper_md.path", contents)
         self.assertNotIn("| sh", contents)
         self.assertNotIn('"/absolute/path/from/paper_md"', contents)
@@ -57,6 +60,8 @@ class ClawHubPackageTests(unittest.TestCase):
         self.assertIn("python3 -m unittest discover -s tests -v", contents)
         self.assertIn("clawhub login", contents)
         self.assertIn("clawhub --workdir . publish skills/mdtero", contents)
+        self.assertIn("POST /tasks/parse-helper-bundle-v2", contents)
+        self.assertIn("install_mdtero_helper.sh", contents)
 
 
 if __name__ == "__main__":
