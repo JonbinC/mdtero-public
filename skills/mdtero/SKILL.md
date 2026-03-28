@@ -46,6 +46,7 @@ Authorization: ApiKey $MDTERO_API_KEY
 ## Workflow Rules You Must Preserve
 
 - PDF is an optional artifact. Prefer the Markdown package first and only fall back to `paper_pdf` when the workflow truly requires it.
+- If the user starts from a local PDF, explain that Mdtero currently defaults to `GROBID`; `Docling` and `MinerU` remain fallback options.
 - For Elsevier and ScienceDirect, local acquisition should stay on the user's own machine through the local helper or browser extension.
 - Direct `POST /tasks/parse` is for open inputs. Elsevier and ScienceDirect full text must go through local acquisition first, then `POST /tasks/parse-fulltext-v2` or `POST /tasks/parse-helper-bundle-v2`.
 - If an Elsevier parse only returns the abstract, ask whether the user is on a campus or institutional IP.
