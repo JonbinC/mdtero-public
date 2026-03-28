@@ -97,6 +97,7 @@ clawhub --workdir . publish skills/mdtero --slug mdtero --name "Mdtero" --versio
 - Keep figures and downloadable artifacts with the same paper structure
 - Produce aligned translation outputs for research reading
 - Hand clean paper packages off to agents and downstream workflows
+- When users start from a local PDF, Mdtero currently defaults to `GROBID`; `Docling` and `MinerU` remain fallback options
 
 ## Product Boundary
 
