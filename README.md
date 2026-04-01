@@ -45,6 +45,10 @@ Required environment variables for agent and API usage:
 - `MDTERO_API_KEY` for Mdtero API authentication
 - `ELSEVIER_API_KEY` only when the user wants Elsevier or ScienceDirect full-text retrieval
 
+Keyword discovery and API-key management stay in Mdtero Account.
+
+ClawHub install only sets up the agent skill. The local helper remains a separate install on the user's own machine.
+
 For the local helper, download the installer, inspect it, then run it. Do not pipe a remote script directly into the shell.
 
 The public API remains task-based:

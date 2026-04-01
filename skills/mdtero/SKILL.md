@@ -8,6 +8,10 @@ metadata: {"openclaw":{"homepage":"https://mdtero.com","primaryEnv":"MDTERO_API_
 
 Use Mdtero to turn one paper into a structured Markdown research package for downstream OpenClaw work.
 
+Start in Mdtero Account for keyword discovery and API-key management.
+
+ClawHub install only sets up the agent skill. It does not install the local helper.
+
 ## When To Use
 
 Use this skill when the user wants to:
@@ -20,25 +24,27 @@ Use this skill when the user wants to:
 
 1. Check whether `MDTERO_API_KEY` is already available.
 2. If it is missing, tell the user to generate one at `https://mdtero.com/account`.
-3. Ask them to set it in their local shell, for example:
+3. Explain that keyword discovery and API-key management stay in Mdtero Account.
+4. Ask them to set it in their local shell, for example:
 
 ```bash
 export MDTERO_API_KEY="mdt_live_..."
 ```
 
-4. Authenticate requests with:
+5. Authenticate requests with:
 
 ```bash
 Authorization: ApiKey $MDTERO_API_KEY
 ```
 
-5. If the user wants Elsevier or ScienceDirect full-text retrieval, also check `ELSEVIER_API_KEY` and explain that it is separate from `MDTERO_API_KEY`.
-6. If an Elsevier DOI is missing the local helper or `ELSEVIER_API_KEY`, tell the user exactly what is missing instead of guessing.
-7. Explain that `ELSEVIER_API_KEY` helps the user's local acquisition step. It does not enable direct server-side `POST /tasks/parse` for `10.1016/...` inputs.
+6. If the user wants Elsevier or ScienceDirect full-text retrieval, also check `ELSEVIER_API_KEY` and explain that it is separate from `MDTERO_API_KEY`.
+7. If an Elsevier DOI is missing the local helper or `ELSEVIER_API_KEY`, tell the user exactly what is missing instead of guessing.
+8. Explain that `ELSEVIER_API_KEY` helps the user's local acquisition step. It does not enable direct server-side `POST /tasks/parse` for `10.1016/...` inputs.
 
 ## Before Use
 
 - Mdtero API usage requires `MDTERO_API_KEY`. Elsevier or ScienceDirect full-text retrieval may also require `ELSEVIER_API_KEY`.
+- Tell the user that ClawHub install only sets up the agent skill, while the local helper remains a separate install on their own machine.
 - Parse and translate requests send paper content or paper-source content to `https://api.mdtero.com`, so do not use this workflow for sensitive or proprietary manuscripts unless the user accepts that boundary.
 - If the user needs the local helper, tell them to download the installer, review it locally, then run it on their own machine. Do not recommend piping a remote script directly into the shell.
 - If the user wants a fuller install or helper walkthrough, point them to `https://mdtero.com/guide` or `https://api.mdtero.com/skills/install.md`.
